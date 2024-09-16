@@ -32,4 +32,43 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, jasmine_testing_4_Angular_apps');
   });
+
+  describe("PDF Tests", () => {
+    describe("Chapter Two - Common Matchers", ()=> {
+      
+      it("Basic Assertion - toBe", ()=>{
+        const result = 2 + 3;
+        expect(result).toBe(5) //strict equality equiv
+      });
+
+      it("to Equal Matcher", ()=> {
+        // deep equality for reference types objs & arrays
+        const person1 = {
+          name: "Tom",
+          age: 204
+        };
+
+        const person2 = {
+          name: "Tom",
+          age: 204
+        }
+        expect(person1).toEqual(person2); 
+      });
+
+      it("to Contain Matcher", ()=> {
+        const ludo = [1, 2, 3, 4, 5 , 6];
+        const nom = "Richard"
+        expect(ludo).toContain(2);
+        expect(nom.toLowerCase()).toContain("rich")
+      })
+
+      it("to Be Truthy or Falsy", ()=>{
+        const nom = "timothy";
+        const age = undefined;
+        expect(nom).toBeTruthy();
+        expect(age).toBeUndefined();
+        expect(age).toBeFalsy();
+      })
+    })
+  })
 });
